@@ -1,0 +1,10 @@
+#!/bin/sh
+
+TERM=dumb
+(ps -eww | grep plumber) || plumber
+(ps -eww | grep fontsrv) || fontsrv &
+tabstop=4
+
+SHELL=bash
+exec acme -a $*
+

@@ -3,6 +3,6 @@ SRCDIR = src
 
 install:
 	chmod -R 755 $(SRCDIR)
-	mv $(SRCDIR)/* $(DESTDIR)
+	cp $(SRCDIR)/* $(DESTDIR)
 
 default: install
