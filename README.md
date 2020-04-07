@@ -6,7 +6,7 @@
 |_|   \__,_|_|  |_|\_\___|_|    |___/ |____/ \___|_|  |_| .__/ \__|___/
                                                         |_|
 ```
-I use these scripts every day.  They're either specifically for use with acme,
+I use these scripts every day.  They're either specifically for use with [acme](https://acme.cat-v.org/),
 or they're too simple to put in their own repository.
 
 To install just run
@@ -24,12 +24,16 @@ Overview of the scripts:
   Keeps track of the current COVID-19 epidemic (thanks China!).  You do need to install
   [`json2tsv`](https://www.codemadness.org/json2tsv.html) in order for it to work.
 
+* [`pyhelp`](./src/pyhelp):
+  Helps when I want to look at the documentation for any default Python object within acme.
+
 * [`a+`](./src/a+) and [`a-`](./src/a-):
   These scripts indent/outdent my code for me.
 
 * [`displayonacme`](./src/displayonacme):
   Since I output stuff to acme all the time in a standard fashion, I wanted to be able
   to only write that code once and then pipe any actual output I want into that script.
+  See [`Corona`](./src/Corona) and [`pyhelp`](./src/pyhelp) for examples of how I use it.
 
 * [`tag`](./src/tag):
   Helps me surround text with an HTML tag.  This is the only Python script in here, and it
