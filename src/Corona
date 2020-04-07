@@ -2,10 +2,9 @@
 # see how fast California is dying
 set -e
 url='https://corona.lmao.ninja/states'
-curl -s $url | json2tsv | gawk -F '\t' '
+curl -s $url | json2tsv | awk -F '\t' '
 BEGIN{
 	print "California Cases"
-	print "Retrieved on: " strftime("%Y/%m/%d")
 }
 
 $1 == "[].state"  {
