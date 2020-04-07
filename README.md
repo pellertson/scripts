@@ -21,7 +21,7 @@ the typical `/usr/local/bin/` directory, you'll just have to run `sudo` in front
 Overview of the scripts:
 
 * [`Corona`](./src/Corona):
-  Keeps track of the current COVID-19 epidemic (thanks China!).  You do need to install
+  Keeps track of the current COVID-19 epidemic.  You do need to install
   [`json2tsv`](https://www.codemadness.org/json2tsv.html) in order for it to work.
 
 * [`pyhelp`](./src/pyhelp):
