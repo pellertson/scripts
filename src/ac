@@ -6,5 +6,5 @@ TERM=dumb
 tabstop=4
 
 SHELL=bash
-exec acme -a $*
+exec edwood -a $*
 
