@@ -1,2 +1,0 @@
-#!/bin/sh
-sleep $@ && mpv https://invidio.us/watch?v=IUAWsNpnVNQ&t=10s
