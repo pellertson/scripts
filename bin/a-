@@ -1,0 +1,4 @@
+#!/bin/sh
+# Dedent code (hope that's the right word)
+
+sed -e "s/^	//g"

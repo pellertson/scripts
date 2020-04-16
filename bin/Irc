@@ -1,0 +1,5 @@
+#!/bin/sh
+velour -j "#bitreich-en" \
+       -f "Parker Ellertson" \
+       -n pellertson \
+       -p Homer1998 irc.freenode.net

@@ -1,0 +1,4 @@
+#!/bin/sh
+# prints out the docstring plus any methods for a given python object
+
+python3 -c "print(help($1))" | displayonacme "/man/python/help($1)"

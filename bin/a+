@@ -1,0 +1,4 @@
+#!/bin/sh
+# Indent code
+
+sed -e "s/^/	/g"

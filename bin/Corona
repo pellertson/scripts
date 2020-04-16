@@ -1,0 +1,38 @@
+#!/bin/sh
+# see how fast California is dying
+set -e
+url='https://corona.lmao.ninja/states'
+curl -s $url | json2tsv | awk -F '\t' '
+BEGIN{
+	print "California Cases"
+}
+
+$1 == "[].state"  {
+	if ( $3 == "California" )
+		o[1] = "on"
+	else
+		o[1] = "off"
+}
+
+$1 == "[].cases" {
+	if ( o[1] == "on" ) print "Total Cases: " $3
+}
+
+$1 == "[].todayCases" {
+	if ( o[1] == "on" ) print "New Cases: " $3
+
+}
+
+$1 == "[].deaths" {
+	if ( o[1] == "on" ) print "Total Deaths: " $3
+}
+
+$1 == "[].todayDeaths" {
+	if ( o[1] == "on" ) print "New Deaths: " $3
+}
+
+$1 == "[].active" {
+	if ( o[1] == "on" ) print "Active Cases: " $3
+}' | displayonacme CoronaCounter
+
+
