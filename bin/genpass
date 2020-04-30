@@ -29,7 +29,7 @@ def main():
 	args = parser.parse_args()
 	#print(args)
 	#exit()
-	char_pool = string.ascii_letters + string.digits + string.punctuation
+	char_pool = string.ascii_letters + string.digits
 
 	if not args.no_special_chars:
 		# in the unicode table, all chars from à to ɏ
