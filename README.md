@@ -1,13 +1,8 @@
-```
- ____            _             _       ____            _       _
-|  _ \ __ _ _ __| | _____ _ __( )___  / ___|  ___ _ __(_)_ __ | |_ ___
-| |_) / _` | '__| |/ / _ \ '__|// __| \___ \ / __| '__| | '_ \| __/ __|
-|  __/ (_| | |  |   <  __/ |    \__ \  ___) | (__| |  | | |_) | |_\__ \
-|_|   \__,_|_|  |_|\_\___|_|    |___/ |____/ \___|_|  |_| .__/ \__|___/
-                                                        |_|
-```
+My Scripts Folder
+=============
+
 I use these scripts every day.  They're either specifically for use with [acme](https://acme.cat-v.org/),
-or they're too simple to put in their own repository.
+or they're too simple to put in their own repository.  Most fall in the former category.
 
 To install just run
 ```shell
@@ -38,4 +33,7 @@ Overview of the scripts:
 * [`tag`](./src/tag):
   Helps me surround text with an HTML tag.  This is the only Python script in here, and it
   needs to be at least Python 3.6.
+
+
+
 

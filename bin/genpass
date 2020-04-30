@@ -1,0 +1,49 @@
+#!/usr/bin/env python3
+# TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+# 0. You just DO WHAT THE FUCK YOU WANT TO.
+
+from random import SystemRandom
+import argparse
+import string
+
+
+
+def get_parser():
+	desc = "A password generator that includes support for more latin characters."
+	parser = argparse.ArgumentParser(description=desc)
+
+	parser.add_argument('-n', '--no-special-chars',
+		help='Turn off any extra latin characters.',
+		action="store_true",
+		dest="no_special_chars")
+
+	parser.add_argument('-l', '--length',
+		type=int,
+		help="Length of the password",
+		default=32)
+
+	return parser
+
+def main():
+	parser = get_parser()
+	args = parser.parse_args()
+	#print(args)
+	#exit()
+	char_pool = string.ascii_letters + string.digits + string.punctuation
+
+	if not args.no_special_chars:
+		# in the unicode table, all chars from à to ɏ
+		latin_chars = "".join([chr(x) for x in range(192, 592)])
+		char_pool += latin_chars
+
+	char_pool_len = len(char_pool)
+
+	password = ""
+	gen = SystemRandom()
+	for _ in range(args.length):
+		password += char_pool[int(char_pool_len * gen.random())]
+
+	print(password)
+
+if __name__ == "__main__":
+	main()

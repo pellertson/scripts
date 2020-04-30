@@ -2,4 +2,5 @@
 velour -j "#bitreich-en" \
        -f "Parker Ellertson" \
        -n pellertson \
-       -p Homer1998 irc.freenode.net
+       -p $(pass irc/freenode) \
+       irc.freenode.net
