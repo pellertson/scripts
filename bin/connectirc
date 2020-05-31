@@ -1,0 +1,13 @@
+#!/bin/sh
+# Wrapper for connecting to irc servers
+# Meant to be used with velour
+# https://github.com/velour/velour
+
+server = $1
+nick = ${2:='parker'}
+
+if [ $3 ]; then
+velour -ssl -n $nick -p $3 $server
+else
+	velour -ssl -n $nick $server
+fi

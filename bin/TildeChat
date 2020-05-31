@@ -1,0 +1,2 @@
+#!/bin/sh
+velour -ssl irc.tilde.chat:6697

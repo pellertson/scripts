@@ -1,0 +1,5 @@
+#!/bin/sh
+velour -n pellertson \
+       -ssl \
+       -p $(pass irc/freenode) \
+       chat.freenode.net:6697

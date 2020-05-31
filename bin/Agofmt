@@ -1,5 +1,6 @@
 #!/usr/bin/env rc
-. ./acme-helpers.rc
+fn aread { 9p read acme/$winid/$1 }
+fn awrite { 9p write acme/$winid/$1 }
 ftmp=`{mktemp /tmp/Agofmt.XXXXXX}
 etmp=`{mktemp /tmp/Agofmt.XXXXXX}
 if (aread body | gofmt $*>$ftmp >[2]$etmp) {
