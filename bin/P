@@ -1,0 +1,37 @@
+#!/usr/bin/csi -script
+(require-extension srfi-13)
+
+(define open-paren #\()
+(define dbl-quote #\")
+
+(define (printing-loop count)
+  (let loop ((count count))
+    (if (> count 0)
+        (begin
+         (display ")")
+         (loop (- count 1))))))
+
+(define (counting-loop string)
+  (let loop ((string string)
+             (count 0)
+             (in-quotes? #f))
+    (if (eq? string '())
+        (printing-loop count)
+        (let ((char (car string)))
+          ;;(display char)
+          (write-string (make-string 1 char))
+          (cond ((and (char=? char open-paren)
+                      (not in-quotes?))
+                  (loop (cdr string) (+ count 1) in-quotes?))
+                ((char=? char dbl-quote)
+                  (if in-quotes?
+                      (loop (cdr string) count #f)
+                      (loop (cdr string) count #t)))
+                (else (loop (cdr string) count in-quotes?)))))))
+
+(define input (string->list (read-string)))
+
+(counting-loop input)
+
+
+
