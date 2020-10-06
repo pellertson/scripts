@@ -1,0 +1,13 @@
+#!/usr/bin/env rc
+# Thesaurus script, connects to Merriam-Webster API
+. $PLAN9/lib/acme.rc
+
+newwindow
+winname '/thesaurus/'^$1
+
+KEY=`{pass API/MerriamWebster/thesaurus}
+URL='https://www.dictionaryapi.com/api/v3/references/thesaurus/json/'
+
+# curl -s $URL^$1^'?key='^$KEY | json2tsv | awk -f thesaurus.awk | winwrite body
+curl -s $URL^$1^'?key='^$KEY   | winwrite body
+winctl 'clean'

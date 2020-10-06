@@ -1,0 +1,3 @@
+#!/bin/sh
+# adding comments in shell scripts
+com+ '# '

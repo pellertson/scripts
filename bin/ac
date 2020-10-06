@@ -6,5 +6,5 @@ TERM=dumb
 tabstop=4
 
 SHELL=bash
-exec acme -a -f /mnt/font/GoMono/10a/font $*
+exec acme -a -f /mnt/font/UnifontMedium/10a/font $*
 

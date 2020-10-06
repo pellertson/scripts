@@ -1,0 +1,3 @@
+#!/bin/sh
+# remove comments in regular code
+com- '// '

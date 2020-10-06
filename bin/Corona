@@ -2,6 +2,7 @@
 # see how fast California is dying
 set -e
 url='https://corona.lmao.ninja/states'
+
 curl -s $url | json2tsv | awk -F '\t' '
 BEGIN{
 	print "California Cases"

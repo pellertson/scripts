@@ -1,0 +1,4 @@
+#!/bin/sh
+# general command for adding comments
+
+sed -e "s,^,$1,"

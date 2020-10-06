@@ -1,0 +1,3 @@
+#!/bin/sh
+# removing comments in shell scripts
+com- '# '

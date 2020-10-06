@@ -1,4 +1,11 @@
-#!/bin/sh
+#!/usr/bin/env rc
 # prints out the docstring plus any methods for a given python object
+. $PLAN9/lib/acme.rc
+newwindow
+python3 -c 'print(help('^$1^'))' | winwrite body
+winname '/man/python/help('^$1^')'
 
-python3 -c "print(help($1))" | displayonacme "/man/python/help($1)"
+winctl 'clean'
+printf '0,0' | winwrite addr
+winctl 'dot=addr'
+winctl 'show'

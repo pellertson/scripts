@@ -1,0 +1,6 @@
+#!/bin/sh
+# downloads calendars that i need
+
+while read file link; do
+	curl -s $link > "$HOME/.local/share/$file.ics"
+done < $HOME/.local/share/calendar_links

@@ -1,0 +1,3 @@
+#!/bin/sh
+# general command for removing comments
+sed -e "s,^$1,,"
