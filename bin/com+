@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env rc
 # general command for adding comments
 
-sed -e "s,^,$1,"
+ssam 'x/^[	| ]*[a-zA-Z0-9]/x/[a-zA-Z0-9]/i/'^$1^'/'

@@ -1,3 +1,3 @@
-#!/bin/sh
+#!/usr/bin/env rc
 # general command for removing comments
-sed -e "s,^$1,,"
+ssam 'y/".*"/y/''.*''/x/'^$1^'/d'
