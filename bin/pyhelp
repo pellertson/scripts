@@ -6,6 +6,6 @@ python3 -c 'print(help('^$1^'))' | winwrite body
 winname '/man/python/help('^$1^')'
 
 winctl 'clean'
-printf '0,0' | winwrite addr
+printf '#0,#0' | winwrite addr
 winctl 'dot=addr'
 winctl 'show'

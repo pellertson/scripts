@@ -1,0 +1,5 @@
+#!/bin/sh
+# removes color escape-sequences from any command that spits them out
+# thanks to stack overflow user Luke H
+# https://stackoverflow.com/a/6534712
+sed -r 's/\x1b\[[0-9;]*m?//g' -

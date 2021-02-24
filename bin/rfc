@@ -1,0 +1,16 @@
+#!/usr/bin/env rc
+# command to spit rfc documents to acme
+. $PLAN9/lib/acme.rc
+
+newwindow
+winname '/rfc/'^$1
+
+
+curl -s 'https://www.ietf.org/rfc/rfc'^$1^'.txt' | winwrite body
+
+{
+	winctl 'clean'
+	printf '#0,#0' | winwrite addr
+	winctl 'dot=addr'
+	winctl 'show'
+} >[2=1] | winwrite body

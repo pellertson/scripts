@@ -1,0 +1,23 @@
+#!/usr/bin/env rc
+# first part of command to help with writing ledger
+. $PLAN9/lib/acme.rc
+
+newwindow
+winname '/ledger/new'
+printf 'Add' | winwrite tag
+
+cat <<'EOF' | winwrite body
+# Enter the transaction information below
+[[transaction]]
+date = ""
+description = ""
+account = "Coming from"
+	[[transaction.post]]
+	amount =
+	account = "Going to"
+
+EOF
+
+printf '#66' | winwrite addr
+date +%F | head -c -1 | winwrite data
+

@@ -1,0 +1,16 @@
+#!/bin/sh
+
+archives(){
+	# echo $1
+	# TODO: add some code in here for caching the etag
+	# curl -s `'https://api.chess.com/pub/player/'`$1`'/games/archives'` \
+	curl -sL $( printf 'https://api.chess.com/pub/player/%s/games/archives' $1) \
+		| json2tsv \
+		| cut -f 3
+}
+
+for archive in $(archives $1); do
+	# echo $archive >&2
+	curl -s $(printf '%s/pgn' $archive)
+done
+

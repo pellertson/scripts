@@ -1,0 +1,6 @@
+#!/bin/sh
+# wrapper for my ledger program
+# https://github.com/rudolfschmidt/acc
+# acc(1) doesn'tseem to have a default file option
+
+acc -f $LEDGER_FILE $@

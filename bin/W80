@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+# wraps a big chunk of text down to at least 80 character lines
+import sys
+
+# generator for
+def words(fo):
+	for line in fo:
+		for word in line.split():
+			yield word
+
+def main():
+	line = ""
+
+	for word in words(sys.stdin):
+		if len(line) == 0:
+			line = word
+		# we see about the length of the line before changing
+		# any variable
+		elif len(line) + len(word) >= 80:
+			print(line)
+			line = word
+		else:
+			line = f"{line} {word}"
+			if line[-1] in list('.?!'):
+				line += " "
+
+	# needed to print the last remaining line
+	print(line)
+
+if __name__ == "__main__":
+	main()
+

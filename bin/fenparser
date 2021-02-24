@@ -1,0 +1,91 @@
+#!/usr/bin/python3
+# parser for printing properly formatted chess boards from a FEN record
+# assumes piped input from json2tsv(2)
+
+import fileinput
+import sys
+
+# uppercase letters are white; lowercase letters are black
+def parse_square(sq):
+	if sq == 'k':
+		return '♚'
+	elif sq == 'K':
+		return '♔'
+	elif sq == 'q':
+		return '♛'
+	elif sq == 'Q':
+		return '♕'
+	elif sq == 'b':
+		return '♝'
+	elif sq == 'B':
+		return '♗'
+	elif sq == 'n':
+		return '♞'
+	elif sq == 'N':
+		return '♘' # m'lady
+	elif sq == 'r':
+		return '♜'
+	elif sq == 'B':
+		return '♖'
+	elif sq == 'p':
+		return '♟'
+	elif sq == 'P':
+		return '♙'
+	else:
+		return None
+
+def print_fen(fen):
+	board, active, castle, en_passant, half_move, full_move = fen.split(' ')
+	parsed_board = []
+
+# 	for row in board.split('/'):
+# 		squares_parsed = 0
+# 		for index, square in enumerate(row):
+# 			parsed = parse_square(square)
+# 			squares_parsed += 1
+#
+# 			if parsed:
+# 				parsed_board.insert(0, parsed)
+# 			else:
+# 				i = square
+# 				while i > 0:
+# 					if i + parsed_squares % 2 == 0:
+# 						parsed_board.insert(0, '')
+# 					else:
+# 						parsed_board.insert(
+
+	for row in board.split('/'):
+		result = ""
+		for index, sq in enumerate(row):
+			parsed_sq = parse_square(sq)
+
+			if parsed_sq:
+				result += parsed_sq
+			else:
+				for i in range(sq):
+					if i + index % 2 == 0:
+						result += ''
+					else:
+						result += '■'
+
+		parsed_board.append(result)
+
+
+	for row in parsed_board:
+		print(row)
+
+
+def parse_line(line):
+# 	for key, _, value in line.split('\t'):
+# 		if key == '.games[].fen':
+# 			print_fen(value)
+	print(type(line))
+
+def main():
+	for line in sys.stdin:
+		parse_line(line)
+
+if __name__ == '__main__':
+	main()
+
+

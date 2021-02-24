@@ -1,0 +1,6 @@
+#!/usr/bin/env rc
+# second part of ledger script
+. $PLAN9/lib/acme.rc
+LEDGER_FILE=$HOME/.local/share/ledger.toml
+winread body | grep -v '^#' >>$LEDGER_FILE
+winctl del
